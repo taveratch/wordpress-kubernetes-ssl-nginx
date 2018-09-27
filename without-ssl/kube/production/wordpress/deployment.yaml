@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: wordpress-tutorial # Change this
-  name: wordpress # Change this
+  namespace: wordpress-tutorial # Match with namespace
+  name: wordpress # MARK C
   labels:
-    app: wordpress # Change this
+    app: wordpress # MARK C
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wordpress # Change this
+      app: wordpress # MARK C
   template:
     metadata:
       labels:
-        app: wordpress # Change this
+        app: wordpress # MARK C
     spec:
       containers:
-      - name: wordpress # Change this
-        image: wordpress # Change this
+      - name: wordpress
+        image: wordpress
         ports:
-        - containerPort: 80 # Change this
+        - containerPort: 80
         env:
         - name: WORDPRESS_DB_HOST
           value: mysql-service:3306
