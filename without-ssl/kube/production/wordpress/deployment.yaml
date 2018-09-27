@@ -19,7 +19,7 @@ spec:
       - name: wordpress
         image: wordpress
         ports:
-        - containerPort: 80
+        - containerPort: 80 # MARK C.1
         env:
         - name: WORDPRESS_DB_HOST
           value: mysql-service:3306
