@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: wordpress-tutorial # Change this
+  name: wordpress # Change this
+  labels:
+    app: wordpress # Change this
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wordpress # Change this
+  template:
+    metadata:
+      labels:
+        app: wordpress # Change this
+    spec:
+      containers:
+      - name: wordpress # Change this
+        image: wordpress # Change this
+        ports:
+        - containerPort: 80 # Change this
+        env:
+        - name: WORDPRESS_DB_HOST
+          value: mysql-service:3306
+        - name: WORDPRESS_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: password
+        volumeMounts:
+          - name: wordpress-persistent-storage
+            mountPath: /var/www/html
+        imagePullPolicy: Always
+      restartPolicy: Always
+      volumes:
+        - name: wordpress-persistent-storage
+          persistentVolumeClaim:
+            claimName: wordpress-storage

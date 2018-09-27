@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: wordpress-tutorial # Change this
+  name: mysql # Change this
+  labels:
+    app: mysql # Change this
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql # Change this
+  template:
+    metadata:
+      labels:
+        app: mysql # Change this
+    spec:
+      containers:
+      - name: mysql # Change this
+        image: mysql:5.6 # Change this
+        ports:
+        - containerPort: 3306 # Change this
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: password
+        volumeMounts:
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+        imagePullPolicy: Always
+      restartPolicy: Always
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-storage

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: wordpress-tutorial # Change this
+  name: filebrowser # Change this
+  labels:
+    app: filebrowser # Change this
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: filebrowser # Change this
+  template:
+    metadata:
+      labels:
+        app: filebrowser # Change this
+    spec:
+      containers:
+      - name: filebrowser # Change this
+        image: registry.hub.docker.com/filebrowser/filebrowser # Change this
+        ports:
+        - containerPort: 80 # Change this
+        volumeMounts:
+          - name: disk
+            mountPath: /srv
+        imagePullPolicy: Always
+      restartPolicy: Always
+      volumes:
+        - name: disk
+          persistentVolumeClaim:
+            claimName: disk
