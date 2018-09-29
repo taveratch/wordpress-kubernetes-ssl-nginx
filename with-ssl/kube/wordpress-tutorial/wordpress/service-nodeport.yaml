@@ -6,7 +6,7 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 80 # Port that allow nginx to communicate
+  - port: 80 # Port that allows ingress to communicate with
     targetPort: 80 # Match with MARK C.1
     protocol: TCP
   selector:
