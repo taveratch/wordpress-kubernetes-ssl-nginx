@@ -34,7 +34,7 @@ spec:
         imagePullPolicy: Always
         readinessProbe:
           httpGet:
-            path: /wp-admin/install.php
+            path: /wp-admin/install.php # this path always returns 200 status code
             port: 80
           periodSeconds: 1
           timeoutSeconds: 10

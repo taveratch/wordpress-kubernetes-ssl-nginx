@@ -15,7 +15,7 @@ spec:
   - host: blog.loopback.space # [TODO] Change this to your host
     http:
       paths:
-      - path: /
+      - path: /*
         backend:
           serviceName: wordpress-service
           servicePort: 80
