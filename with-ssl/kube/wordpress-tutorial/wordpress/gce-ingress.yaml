@@ -10,7 +10,7 @@ spec:
   tls:
     - hosts:
       - blog.loopback.space # [TODO] Change this to your host
-      secretName: blog-loopback-space-tls # [TODO] Change this to YOUR_HOST-tls
+      secretName: blog-loopback-space-tls # [TODO] Change this to anything
   rules:
   - host: blog.loopback.space # [TODO] Change this to your host
     http:
