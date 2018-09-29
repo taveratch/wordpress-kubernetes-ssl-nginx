@@ -2,7 +2,7 @@ kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
   name: wordpress-ingress
-  namespace: wordpress-tutorial # Change this
+  namespace: wordpress-tutorial # Match with namespace
   annotations:
     kubernetes.io/tls-acme: "true"
     kubernetes.io/ingress.class: "gce"

@@ -32,6 +32,14 @@ spec:
           - name: wordpress-persistent-storage
             mountPath: /var/www/html
         imagePullPolicy: Always
+        readinessProbe:
+          httpGet:
+            path: /wp-admin/install.php
+            port: 80
+          periodSeconds: 1
+          timeoutSeconds: 10
+          successThreshold: 1
+          failureThreshold: 10
       restartPolicy: Always
       volumes:
         - name: wordpress-persistent-storage
