@@ -4,6 +4,7 @@ metadata:
   name: wordpress-service
   namespace: wordpress-tutorial # Match with namespace
 spec:
+  type: ClusterIP
   ports:
   - port: 80 # Port that allow nginx to communicate
     targetPort: 80 # Match with MARK C.1
