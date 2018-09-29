@@ -17,7 +17,7 @@ spec:
   - host: blog.codefactory.site # [TODO] Change this to your host
     http:
       paths:
-      - path: /*
+      - path: /
         backend:
           serviceName: wordpress-service
           servicePort: 80
