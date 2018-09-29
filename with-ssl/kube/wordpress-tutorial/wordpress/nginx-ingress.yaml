@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - blog.loopback.space # [TODO] Change this to your host
-      secretName: blog-loopback-space-tls # [TODO] Change this to YOUR_HOST-tls
+      - blog.codefactory.site # [TODO] Change this to your host
+      secretName: blog-codefactory-site-tls # [TODO] Change this to YOUR_HOST-tls
   rules:
-  - host: blog.loopback.space # [TODO] Change this to your host
+  - host: blog.codefactory.site # [TODO] Change this to your host
     http:
       paths:
       - path: /
