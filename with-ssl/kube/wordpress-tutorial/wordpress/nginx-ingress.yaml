@@ -12,7 +12,7 @@ spec:
   tls:
     - hosts:
       - blog.codefactory.site # [TODO] Change this to your host
-      secretName: blog-codefactory-site-tls # [TODO] Change this to YOUR_HOST-tls
+      secretName: blog-codefactory-site-tls # [TODO] Change this to anything
   rules:
   - host: blog.codefactory.site # [TODO] Change this to your host
     http:
