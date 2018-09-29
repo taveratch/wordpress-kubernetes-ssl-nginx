@@ -1,30 +1,30 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: wordpress-tutorial # Change this
-  name: mysql # Change this
+  namespace: wordpress-tutorial # match with namespace
+  name: mysql # MARK A
   labels:
-    app: mysql # Change this
+    app: mysql # MARK A
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: mysql # Change this
+      app: mysql # MARK A
   template:
     metadata:
       labels:
-        app: mysql # Change this
+        app: mysql # MARK A
     spec:
       containers:
-      - name: mysql # Change this
-        image: mysql:5.6 # Change this
+      - name: mysql
+        image: mysql:5.6
         ports:
-        - containerPort: 3306 # Change this
+        - containerPort: 3306
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret
+              name: mysql-secret # MARK P
               key: password
         volumeMounts:
           - name: mysql-persistent-storage

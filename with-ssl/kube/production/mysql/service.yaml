@@ -1,12 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mysql-service # Change this
-  namespace: wordpress-tutorial # Change this
+  name: mysql-service # MARK B
+  namespace: wordpress-tutorial # Match with namespace
 spec:
   type: ClusterIP
   ports:
-  - port: 3306
+  - port: 3306 # MARK B.1
+    targetPort: 3306 # Must match with containerPort
     protocol: TCP
   selector:
-    app: mysql # Change this
+    app: mysql # Must match with `MARK A` in mysql/deployment.yaml

@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mysql-storage
-  namespace: wordpress-tutorial # Change this
+  namespace: wordpress-tutorial # Match with namespace
 spec:
   accessModes:
     - ReadWriteOnce
